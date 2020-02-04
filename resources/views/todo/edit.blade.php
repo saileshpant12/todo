@@ -9,17 +9,19 @@
 			</div>
 
 			<div class="scroll">
-				<form class="form-horizontal" action="" style="margin-left: 50px; margin-top: 10px;">
+				<form class="form-horizontal" action="/todo/{{$todo->id}}" method="post" style="margin-left: 50px; margin-top: 10px;">
+					@csrf
+					@method('put')
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="email">Task Name:</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="email" placeholder="Enter Task Name" name="name">
+							<input type="text" class="form-control" id="email" placeholder="Enter Task Name" name="name" value="{{ $todo->name }}">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="pwd">Due Date:</label>
 						<div class="col-sm-10">          
-							<input type="date" class="form-control" id="pwd" placeholder="Select Due Date" name="due_date">
+							<input type="date" class="form-control" id="pwd" placeholder="Select Due Date" name="due_date" value="{{ $todo->due_date }}">
 						</div>
 					</div>
 					<div class="form-group">        

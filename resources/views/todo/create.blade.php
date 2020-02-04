@@ -8,17 +8,19 @@
 				<div class="card-header-title font-size-lg text-capitalize font-weight-normal"><i class="fa fa-tasks"></i>&nbsp;Create Task</div>
 			</div>
 			<div class="scroll">
-				<form class="form-horizontal" action="" style="margin-left: 50px; margin-top: 10px;">
+				<form class="form-horizontal" action="/todo" method="post" style="margin-left: 50px; margin-top: 10px;">
+					@csrf
 					<div class="form-group">
-						<label class="control-label col-sm-2" for="email">Task Name:</label>
+						<label class="control-label col-sm-2 @error('name') text-danger @enderror" for="email">Task Name:</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="email" placeholder="Enter Task Name" name="name">
+							<input type="text" class="form-control @error('name') is-invalid @enderror" id="email" placeholder="Enter Task Name" name="name">
+
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="control-label col-sm-2" for="pwd">Due Date:</label>
+						<label class="control-label col-sm-2 @error('due_date') text-danger @enderror" for="pwd">Due Date:</label>
 						<div class="col-sm-10">          
-							<input type="date" class="form-control" id="pwd" placeholder="Select Due Date" name="due_date">
+							<input type="date" class="form-control @error('due_date') is-invalid @enderror" id="pwd" placeholder="Select Due Date" name="due_date">
 						</div>
 					</div>
 					<div class="form-group">        

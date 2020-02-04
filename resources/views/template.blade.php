@@ -204,5 +204,6 @@
 <div class="row" style="margin-left : 350px;">
     @yield('content')
 </div>
+    @yield('scripts')
 </body>
 </html>
